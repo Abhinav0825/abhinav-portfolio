@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Abhinav Singh Chauhan, aspiring software engineer.">
+  <title>Abhinav Singh Chauhan | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="#home">ASC<span>.</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
+        <a href="#projects">Projects</a><a href="#contact" class="nav-contact">Contact <span>↗</span></a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">☼</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> AVAILABLE TO LEARN & COLLABORATE</p>
+        <h1>Hi, I'm <span>Abhinav</span><br>Singh Chauhan.</h1>
+        <h2>Aspiring Software Engineer</h2>
+        <p class="hero-text">I’m a Computer Science student interested in building useful, simple and user-friendly digital experiences. I enjoy learning new technologies and turning ideas into working projects.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="button button-quiet" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero-meta"><span>📍 Lucknow, India</span><span>🎓 B.Tech CSE (AI & ML)</span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative initials graphic">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="profile-card"><span class="card-label">PORTFOLIO / 2026</span><div class="monogram">A<span>.</span></div><p>Curious mind.<br>Consistent learner.</p><div class="card-line"></div><span class="card-bottom">ABHINAV SINGH CHAUHAN</span></div>
+        <span class="floating-tag tag-one">HTML · CSS · JS</span><span class="floating-tag tag-two">BUILD / LEARN / REPEAT</span>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="section-heading"><p class="eyebrow">01 / INTRODUCTION</p><h2>About <span>me</span></h2></div>
+      <div class="about-grid">
+        <p class="about-lead">I’m a B.Tech Computer Science student specializing in Artificial Intelligence and Machine Learning at Shri Ramswaroop Memorial University.</p>
+        <div class="about-detail"><p>I’m developing my foundation in programming, web development and problem-solving. I like exploring how technology works and applying what I learn through practical academic projects. My goal is to grow into a skilled software engineer and keep improving with every project.</p><div class="mini-facts"><div><strong>01</strong><span>Curious learner</span></div><div><strong>02</strong><span>Problem solver</span></div><div><strong>03</strong><span>Team mindset</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="education">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">02 / MY JOURNEY</p><h2>Education</h2></div>
+        <div class="timeline">
+          <article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-date">2024 – PRESENT</div><div class="timeline-content"><h3>Bachelor of Technology</h3><p class="institution">Shri Ramswaroop Memorial University (SRMU)</p><p>Computer Science & Engineering — Artificial Intelligence and Machine Learning</p><span class="chip">Undergraduate</span></div></article>
+          <article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-date">2024</div><div class="timeline-content"><h3>Class XII — PCM</h3><p class="institution">Senior Secondary Education</p><p>Completed higher secondary education with Physics, Chemistry and Mathematics.</p><span class="chip">Science stream</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="skills">
+      <div class="section-heading"><p class="eyebrow">03 / WHAT I USE</p><h2>Skills & <span>tools</span></h2><p class="section-intro">Technologies and concepts I’m learning and practising as part of my computer science journey.</p></div>
+      <div class="skills-grid">
+        <article class="skill-card"><div class="skill-icon">⌘</div><h3>Web Development</h3><p>Creating structured pages and styling responsive layouts.</p><div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div></article>
+        <article class="skill-card"><div class="skill-icon">⟨/⟩</div><h3>Programming</h3><p>Building programming fundamentals and practising logic.</p><div class="skill-tags"><span>C</span><span>Java</span><span>Python</span></div></article>
+        <article class="skill-card"><div class="skill-icon">▤</div><h3>Database Concepts</h3><p>Learning relational databases and writing queries.</p><div class="skill-tags"><span>SQL</span><span>DBMS</span></div></article>
+        <article class="skill-card"><div class="skill-icon">✳</div><h3>Core Concepts</h3><p>Strengthening computer science fundamentals.</p><div class="skill-tags"><span>DSA</span><span>OOP</span><span>Problem Solving</span></div></article>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="projects">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">04 / SELECTED WORK</p><h2>Academic <span>projects</span></h2><p class="section-intro">A few examples of topics and practical work from my learning journey.</p></div>
+        <div class="projects-grid">
+          <article class="project-card"><div class="project-top"><span class="project-number">PROJECT 01</span><span class="project-symbol">↗</span></div><div class="project-visual visual-one"><span>DBMS</span><b>vs</b><span>FILES</span></div><h3>DBMS vs File System</h3><p>An educational comparison explaining data storage, organization, security and the advantages of database management systems.</p><div class="project-tags"><span>Database</span><span>HTML / CSS concepts</span></div></article>
+          <article class="project-card"><div class="project-top"><span class="project-number">PROJECT 02</span><span class="project-symbol">↗</span></div><div class="project-visual visual-two"><span class="tree-node">ROOT</span><i></i><div><span class="tree-node small">L</span><span class="tree-node small">R</span></div></div><h3>Binary Tree Visual Study</h3><p>A learning project focused on binary tree structure, nodes, traversal methods and basic tree operations.</p><div class="project-tags"><span>Data Structures</span><span>Algorithms</span></div></article>
+          <article class="project-card"><div class="project-top"><span class="project-number">PROJECT 03</span><span class="project-symbol">↗</span></div><div class="project-visual visual-three"><div class="help-icon">?</div><div><span>HELP</span><span>HUB</span></div></div><h3>HelpHub Presentation</h3><p>A concept presentation exploring a help and support platform, its impact, benefits and user-focused approach.</p><div class="project-tags"><span>UI Concept</span><span>Presentation</span></div></article>
+        </div>
+        <p class="project-note">Note: These are academic learning projects. Add links to working demos or source code when you publish them.</p>
+      </div>
+    </section>
+
+    <section class="section container contact-section" id="contact">
+      <div class="contact-panel"><div><p class="eyebrow">05 / LET’S CONNECT</p><h2>Have an idea?<br><span>Let’s talk.</span></h2><p>I’m open to learning opportunities, collaboration and conversations about technology.</p></div><div class="contact-links"><a href="mailto:YOUR_EMAIL@example.com" class="contact-link"><span>Email</span><b>YOUR_EMAIL@example.com ↗</b></a><a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer" class="contact-link"><span>GitHub</span><b>github.com/YOUR_GITHUB_USERNAME ↗</b></a><a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME/" target="_blank" rel="noreferrer" class="contact-link"><span>LinkedIn</span><b>Connect with me ↗</b></a></div></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><a class="logo" href="#home">ASC<span>.</span></a><p>Designed & built by Abhinav Singh Chauhan</p><a href="#home">Back to top ↑</a></div><p class="copyright">© <span id="year"></span> Abhinav Singh Chauhan. All rights reserved.</p></footer>
+</body>
+</html>
