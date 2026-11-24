@@ -1,94 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio of Abhinav Singh Chauhan, aspiring software engineer.">
-  <title>Abhinav Singh Chauhan | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Singh Chauhan | Portfolio</title>
+<meta name="description" content="Abhinav Singh Chauhan - Student and aspiring software developer portfolio.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg:#080b16;
+  --card:#11182a;
+  --text:#f4f7ff;
+  --muted:#a1acc4;
+  --blue:#62a5ff;
+  --purple:#a47aff;
+  --line:rgba(255,255,255,.1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  width:500px;height:500px;
+  background:#4431a5;
+  filter:blur(150px);
+  opacity:.18;
+  top:-200px;left:-150px;
+  pointer-events:none;
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:400px;height:400px;
+  background:#0879c9;
+  filter:blur(150px);
+  opacity:.12;
+  bottom:-150px;right:-100px;
+  pointer-events:none;
+  z-index:-1;
+}
+
+a{color:inherit;text-decoration:none}
+.container{width:min(1100px,90%);margin:auto}
+
+nav{
+  position:fixed;
+  top:0;left:0;width:100%;
+  z-index:100;
+  background:rgba(8,11,22,.85);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font:700 25px 'Space Grotesk';
+  color:var(--blue);
+}
+
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:14px;color:var(--muted);transition:.3s}
+.nav-links a:hover{color:var(--blue)}
+
+.menu-btn{
+  display:none;
+  background:none;color:white;
+  border:0;font-size:27px;cursor:pointer;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 0 70px;
+}
+
+.hero-content{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.tag{
+  display:inline-block;
+  border:1px solid rgba(98,165,255,.4);
+  background:rgba(98,165,255,.08);
+  color:var(--blue);
+  padding:9px 17px;
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+h1{
+  font:700 clamp(42px,6vw,68px)/1.12 'Space Grotesk';
+  letter-spacing:-2px;
+}
+
+h1 span{
+  background:linear-gradient(100deg,var(--blue),var(--purple));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+  margin:23px 0;
+  max-width:570px;
+}
+
+.typing{color:var(--blue);font-weight:700}
+
+.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+
+.btn{
+  display:inline-block;
+  padding:13px 23px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:linear-gradient(100deg,#478fff,#9364ee);
+  color:white;
+  box-shadow:0 8px 30px rgba(75,120,255,.22);
+}
+
+.btn-outline{border:1px solid var(--line);color:white}
+.btn:hover{transform:translateY(-4px)}
+
+.photo-wrap{
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.photo-ring{
+  width:min(340px,75vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  padding:7px;
+  background:linear-gradient(135deg,var(--blue),var(--purple),#25d9cc);
+  animation:float 5s ease-in-out infinite;
+  box-shadow:0 0 60px rgba(98,165,255,.25);
+}
+
+.photo-ring img{
+  width:100%;height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 35%;
+  border:5px solid var(--bg);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+section{padding:100px 0;scroll-margin-top:70px}
+
+.section-title{text-align:center;margin-bottom:55px}
+
+.section-title small{
+  color:var(--blue);
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.section-title h2{
+  font:700 clamp(30px,4vw,42px) 'Space Grotesk';
+  margin-top:12px;
+}
+
+.section-title p{color:var(--muted);margin-top:12px}
+
+.about-card,.skill-card,.project-card,.contact-card{
+  background:rgba(17,24,42,.8);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px;
+  transition:.3s;
+}
+
+.about-card:hover,.skill-card:hover,.project-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(98,165,255,.5);
+}
+
+.about-card p{color:var(--muted);line-height:1.9;font-size:16px}
+
+.grid{display:grid;gap:20px}
+.skills-grid{grid-template-columns:repeat(3,1fr)}
+.skill-card{text-align:center;padding:30px 15px}
+.skill-icon{font-size:32px;margin-bottom:15px}
+.skill-card h3{font-size:16px}
+.skill-card p{font-size:13px;color:var(--muted);margin-top:8px}
+
+.projects-grid{grid-template-columns:repeat(2,1fr)}
+
+.project-card h3{
+  font:600 21px 'Space Grotesk';
+  margin:15px 0 10px;
+}
+
+.project-card p{color:var(--muted);line-height:1.7;font-size:14px}
+.project-number{font-size:13px;color:var(--blue);font-weight:700}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.project-tags span{
+  padding:6px 11px;
+  border-radius:20px;
+  background:rgba(98,165,255,.1);
+  color:#91bdff;
+  font-size:11px;
+}
+
+.education-card{
+  max-width:650px;
+  margin:auto;
+  border-left:3px solid var(--blue);
+  padding:20px 25px;
+  background:var(--card);
+  border-radius:0 15px 15px 0;
+}
+.education-card p{color:var(--muted);margin-top:10px;line-height:1.7}
+
+.contact-card{text-align:center;max-width:750px;margin:auto}
+.contact-card p{color:var(--muted);line-height:1.8;margin:15px 0 25px}
+.socials{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+.socials a{
+  border:1px solid var(--line);
+  padding:12px 19px;
+  border-radius:10px;
+  font-size:14px;
+  transition:.3s;
+}
+.socials a:hover{background:#243859;border-color:var(--blue)}
+
+footer{
+  border-top:1px solid var(--line);
+  text-align:center;
+  padding:28px 10px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s,transform .7s;
+}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:750px){
+  .hero-content{grid-template-columns:1fr;text-align:center;gap:40px}
+  .hero p{margin-left:auto;margin-right:auto}
+  .buttons{justify-content:center}
+  .photo-wrap{grid-row:1}
+  .photo-ring{width:240px}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:75px;left:0;width:100%;
+    background:#101729;
+    padding:25px;
+    flex-direction:column;
+    gap:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.active{display:flex}
+  .menu-btn{display:block}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .projects-grid{grid-template-columns:1fr}
+  section{padding:75px 0}
+}
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="logo" href="#home">ASC<span>.</span></a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
-        <a href="#projects">Projects</a><a href="#contact" class="nav-contact">Contact <span>↗</span></a>
-      </div>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">☼</button>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero container" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> AVAILABLE TO LEARN & COLLABORATE</p>
-        <h1>Hi, I'm <span>Abhinav</span><br>Singh Chauhan.</h1>
-        <h2>Aspiring Software Engineer</h2>
-        <p class="hero-text">I’m a Computer Science student interested in building useful, simple and user-friendly digital experiences. I enjoy learning new technologies and turning ideas into working projects.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">Explore my work <span>↗</span></a>
-          <a class="button button-quiet" href="#contact">Get in touch</a>
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">ASC.</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <span class="tag">WELCOME TO MY PORTFOLIO ✨</span>
+      <h1>Hi, I'm <span>Abhinav</span><br>Singh Chauhan</h1>
+      <p>
+        I'm a <span class="typing" id="typing">Student</span><br>
+        Passionate about technology, programming and building creative digital experiences.
+        Always learning, always growing.
+      </p>
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">Explore My Work ↗</a>
+        <a href="#contact" class="btn btn-outline">Let's Connect</a>
+      </div>
+    </div>
+
+    <div class="photo-wrap">
+      <div class="photo-ring">
+        <img src="profile.jpg.jpeg" alt="Abhinav Singh Chauhan">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title reveal">
+      <small>01 / ABOUT ME</small>
+      <h2>Who Am I?</h2>
+      <p>A little introduction about myself</p>
+    </div>
+    <div class="about-card reveal">
+      <p>
+        Hello! I'm Abhinav Singh Chauhan, a student with a strong interest
+        in software development and technology. I enjoy learning new skills,
+        exploring programming concepts and creating projects that help me
+        improve as a developer. My goal is to keep growing, gain practical
+        experience and build useful digital solutions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-title reveal">
+      <small>02 / EDUCATION</small>
+      <h2>My Learning Journey</h2>
+      <p>Learning today, building tomorrow</p>
+    </div>
+    <div class="education-card reveal">
+      <span class="project-number">EDUCATION</span>
+      <h3 style="margin-top:12px">Student</h3>
+      <p>
+        Currently focused on learning programming, computer science
+        fundamentals and developing practical technical skills.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-title reveal">
+      <small>03 / MY SKILLS</small>
+      <h2>Technologies I Explore</h2>
+      <p>My technical learning journey</p>
+    </div>
+    <div class="grid skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML</h3>
+        <p>Web structure</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🎨</div>
+        <h3>CSS</h3>
+        <p>Web styling</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Web interactions</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">💻</div>
+        <h3>Programming</h3>
+        <p>Problem solving</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌳</div>
+        <h3>Data Structures</h3>
+        <p>Computer science</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗄️</div>
+        <h3>DBMS</h3>
+        <p>Database concepts</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-title reveal">
+      <small>04 / MY WORK</small>
+      <h2>Featured Projects</h2>
+      <p>Some of my learning projects and work</p>
+    </div>
+
+    <div class="grid projects-grid">
+      <article class="project-card reveal">
+        <span class="project-number">PROJECT 01</span>
+        <h3>DBMS vs File System</h3>
+        <p>
+          An educational comparison explaining data storage,
+          organization, security and the advantages of database
+          management systems.
+        </p>
+        <div class="project-tags">
+          <span>Database</span><span>HTML / CSS</span>
         </div>
-        <div class="hero-meta"><span>📍 Lucknow, India</span><span>🎓 B.Tech CSE (AI & ML)</span></div>
-      </div>
-      <div class="hero-art" aria-label="Decorative initials graphic">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="profile-card"><span class="card-label">PORTFOLIO / 2026</span><div class="monogram">A<span>.</span></div><p>Curious mind.<br>Consistent learner.</p><div class="card-line"></div><span class="card-bottom">ABHINAV SINGH CHAUHAN</span></div>
-        <span class="floating-tag tag-one">HTML · CSS · JS</span><span class="floating-tag tag-two">BUILD / LEARN / REPEAT</span>
-      </div>
-    </section>
+      </article>
 
-    <section class="section container" id="about">
-      <div class="section-heading"><p class="eyebrow">01 / INTRODUCTION</p><h2>About <span>me</span></h2></div>
-      <div class="about-grid">
-        <p class="about-lead">I’m a B.Tech Computer Science student specializing in Artificial Intelligence and Machine Learning at Shri Ramswaroop Memorial University.</p>
-        <div class="about-detail"><p>I’m developing my foundation in programming, web development and problem-solving. I like exploring how technology works and applying what I learn through practical academic projects. My goal is to grow into a skilled software engineer and keep improving with every project.</p><div class="mini-facts"><div><strong>01</strong><span>Curious learner</span></div><div><strong>02</strong><span>Problem solver</span></div><div><strong>03</strong><span>Team mindset</span></div></div></div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="education">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">02 / MY JOURNEY</p><h2>Education</h2></div>
-        <div class="timeline">
-          <article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-date">2024 – PRESENT</div><div class="timeline-content"><h3>Bachelor of Technology</h3><p class="institution">Shri Ramswaroop Memorial University (SRMU)</p><p>Computer Science & Engineering — Artificial Intelligence and Machine Learning</p><span class="chip">Undergraduate</span></div></article>
-          <article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-date">2024</div><div class="timeline-content"><h3>Class XII — PCM</h3><p class="institution">Senior Secondary Education</p><p>Completed higher secondary education with Physics, Chemistry and Mathematics.</p><span class="chip">Science stream</span></div></article>
+      <article class="project-card reveal">
+        <span class="project-number">PROJECT 02</span>
+        <h3>Binary Tree Visual Study</h3>
+        <p>
+          A learning project focused on binary tree structure,
+          nodes, traversal methods and basic tree operations.
+        </p>
+        <div class="project-tags">
+          <span>Data Structures</span><span>Algorithms</span>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <section class="section container" id="skills">
-      <div class="section-heading"><p class="eyebrow">03 / WHAT I USE</p><h2>Skills & <span>tools</span></h2><p class="section-intro">Technologies and concepts I’m learning and practising as part of my computer science journey.</p></div>
-      <div class="skills-grid">
-        <article class="skill-card"><div class="skill-icon">⌘</div><h3>Web Development</h3><p>Creating structured pages and styling responsive layouts.</p><div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div></article>
-        <article class="skill-card"><div class="skill-icon">⟨/⟩</div><h3>Programming</h3><p>Building programming fundamentals and practising logic.</p><div class="skill-tags"><span>C</span><span>Java</span><span>Python</span></div></article>
-        <article class="skill-card"><div class="skill-icon">▤</div><h3>Database Concepts</h3><p>Learning relational databases and writing queries.</p><div class="skill-tags"><span>SQL</span><span>DBMS</span></div></article>
-        <article class="skill-card"><div class="skill-icon">✳</div><h3>Core Concepts</h3><p>Strengthening computer science fundamentals.</p><div class="skill-tags"><span>DSA</span><span>OOP</span><span>Problem Solving</span></div></article>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="projects">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">04 / SELECTED WORK</p><h2>Academic <span>projects</span></h2><p class="section-intro">A few examples of topics and practical work from my learning journey.</p></div>
-        <div class="projects-grid">
-          <article class="project-card"><div class="project-top"><span class="project-number">PROJECT 01</span><span class="project-symbol">↗</span></div><div class="project-visual visual-one"><span>DBMS</span><b>vs</b><span>FILES</span></div><h3>DBMS vs File System</h3><p>An educational comparison explaining data storage, organization, security and the advantages of database management systems.</p><div class="project-tags"><span>Database</span><span>HTML / CSS concepts</span></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-number">PROJECT 02</span><span class="project-symbol">↗</span></div><div class="project-visual visual-two"><span class="tree-node">ROOT</span><i></i><div><span class="tree-node small">L</span><span class="tree-node small">R</span></div></div><h3>Binary Tree Visual Study</h3><p>A learning project focused on binary tree structure, nodes, traversal methods and basic tree operations.</p><div class="project-tags"><span>Data Structures</span><span>Algorithms</span></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-number">PROJECT 03</span><span class="project-symbol">↗</span></div><div class="project-visual visual-three"><div class="help-icon">?</div><div><span>HELP</span><span>HUB</span></div></div><h3>HelpHub Presentation</h3><p>A concept presentation exploring a help and support platform, its impact, benefits and user-focused approach.</p><div class="project-tags"><span>UI Concept</span><span>Presentation</span></div></article>
+      <article class="project-card reveal">
+        <span class="project-number">PROJECT 03</span>
+        <h3>HelpHub Presentation</h3>
+        <p>
+          A concept presentation exploring a help and support platform,
+          its impact, benefits and user-focused approach.
+        </p>
+        <div class="project-tags">
+          <span>UI Concepts</span><span>Presentation</span>
         </div>
-        <p class="project-note">Note: These are academic learning projects. Add links to working demos or source code when you publish them.</p>
+      </article>
+
+      <article class="project-card reveal">
+        <span class="project-number">PROJECT 04</span>
+        <h3>Personal Portfolio</h3>
+        <p>
+          My personal portfolio website showcasing my introduction,
+          learning journey, skills and projects.
+        </p>
+        <div class="project-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <small>05 / LET'S CONNECT</small>
+      <h2>Have an Idea? Let's Talk.</h2>
+      <p>I'm open to learning opportunities and collaboration.</p>
+    </div>
+
+    <div class="contact-card reveal">
+      <h3>Get In Touch With Me</h3>
+      <p>
+        Have a project idea or want to connect?
+        Feel free to reach out through email or social platforms.
+      </p>
+      <div class="socials">
+        <a href="mailto:abhinavsinghchauhan777@gmail.com">✉ Email</a>
+        <a href="https://github.com/Abhinav0825" target="_blank" rel="noopener noreferrer">⌘ GitHub</a>
+        <a href="https://www.linkedin.com/in/abhinav-singh-chauhan-064652355" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+</main>
 
-    <section class="section container contact-section" id="contact">
-      <div class="contact-panel"><div><p class="eyebrow">05 / LET’S CONNECT</p><h2>Have an idea?<br><span>Let’s talk.</span></h2><p>I’m open to learning opportunities, collaboration and conversations about technology.</p></div><div class="contact-links"><a href="mailto:abhinavsinghchauhan777@gmail.com" class="contact-link"><span>Email</span><b>abhinavsinghchauhan777@gmail.com ↗</b></a><a href="https://github.com/Abhinav0825" target="_blank" rel="noreferrer" class="contact-link"><span>GitHub</span><b>github.com/Abhinav0825 ↗</b></a><a href="https://www.linkedin.com/in/abhinav-singh-chauhan-064652355" target="_blank" rel="noreferrer" class="contact-link"><span>LinkedIn</span><b>Connect with me ↗</b></a></div></div>
-    </section>
-  </main>
+<footer>
+  <p>Designed & Built by <strong>Abhinav Singh Chauhan</strong></p>
+  <p style="margin-top:9px">© 2026 Abhinav Singh Chauhan. All rights reserved.</p>
+</footer>
 
-  <footer class="footer"><div class="container footer-inner"><a class="logo" href="#home">ASC<span>.</span></a><p>Designed & built by Abhinav Singh Chauhan</p><a href="#home">Back to top ↑</a></div><p class="copyright">© <span id="year"></span> Abhinav Singh Chauhan. All rights reserved.</p></footer>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+const words = [
+  'Student',
+  'Tech Enthusiast',
+  'Aspiring Software Developer',
+  'Creative Learner'
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+const typing = document.getElementById('typing');
+
+function typeEffect(){
+  const word = words[wordIndex];
+
+  typing.textContent = word.substring(0, charIndex);
+
+  if(!deleting && charIndex < word.length){
+    charIndex++;
+    setTimeout(typeEffect, 100);
+  }else if(deleting && charIndex > 0){
+    charIndex--;
+    setTimeout(typeEffect, 45);
+  }else{
+    deleting = !deleting;
+    if(!deleting){
+      wordIndex = (wordIndex + 1) % words.length;
+    }
+    setTimeout(typeEffect, 700);
+  }
+}
+typeEffect();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
 </body>
 </html>
